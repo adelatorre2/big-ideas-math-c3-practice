@@ -9,12 +9,14 @@
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{float}
+\usepackage{subfiles}
 \usepackage{subcaption}
 \usepackage{threeparttable}
 \usepackage{nameref}
 
 % for clean problem formatting
 \usepackage{enumitem}
+\setlist[enumerate]{itemsep=1.2em, topsep=0.5em}
 
 % for colored theorem boxes
 \usepackage[dvipsnames]{xcolor}
@@ -31,9 +33,12 @@
     fontupper=\bfseries,
     valign=center,
     halign=center,
-    drop shadow={0.6mm}{-0.6mm}{0mm}{black!15},
+    drop shadow,
   }
 }
+
+% worksheet header macros
+\input{style/worksheet_macros.tex}
 
 % for better typography to improve readability
 \usepackage{microtype}
@@ -138,35 +143,37 @@
 % ---------- Table of contents ----------
 \clearpage
 \tableofcontents
+\phantomsection
+\label{contents}
 \clearpage
 
 
 % ---------- Main text ----------
 \setcounter{chapter}{-1}
-\input{sections/ch0_absolute_foundations/ch0_absolute_foundations.tex}
-\input{sections/ch1_equations/ch1_equations.tex}
-\input{sections/ch2_transformations/ch2_transformations.tex}
+\subfile{sections/ch0_absolute_foundations/ch0_absolute_foundations.tex}
+\subfile{sections/ch1_equations/ch1_equations.tex}
+\subfile{sections/ch2_transformations/ch2_transformations.tex}
 
-\input{sections/ch3_angles_&_triangles/ch3_angles_&_triangles.tex}
+\subfile{sections/ch3_angles_&_triangles/ch3_angles_and_triangles.tex}
 
-\input{sections/ch4_graphing_&_writing_linear-equations/ch4_graphing_&_writing_linear-equations.tex}
-
-
+\subfile{sections/ch4_graphing_&_writing_linear-equations/ch4_graphing_and_writing_linear-equations.tex}
 
 
-\input{sections/ch5_systems_of_linear_equations/ch5_systems_of_linear_equations.tex}
 
-\input{sections/ch6_functions/ch6_functions.tex}
 
-\input{sections/ch7_real_numbers_&_pythag-thm/ch7_real_numbers_&_pythag-thm.tex}
+\subfile{sections/ch5_systems_of_linear_equations/ch5_systems_of_linear_equations.tex}
 
-\input{sections/ch8_volume_&_similar_solids/ch8_volume_&_similar_solids.tex}
+\subfile{sections/ch6_functions/ch6_functions.tex}
 
-\input{sections/ch9_data_analysis_&_displays/ch9_data_analysis_&_displays.tex}
+\subfile{sections/ch7_real_numbers_&_pythag-thm/ch7_real_numbers_and_pythag-thm.tex}
 
-\input{sections/ch10_exponents_&_sci-notation/ch10_exponents_&_sci-notation.tex}
+\subfile{sections/ch8_volume_&_similar_solids/ch8_volume_and_similar_solids.tex}
+
+\subfile{sections/ch9_data_analysis_&_displays/ch9_data_analysis_and_displays.tex}
+
+\subfile{sections/ch10_exponents_&_sci-notation/ch10_exponents_and_sci-notation.tex}
 % ---------- Appendix ----------
-\input{sections/appendix}
+\subfile{sections/appendix}
 
 % ---------- References ----------
 \clearpage

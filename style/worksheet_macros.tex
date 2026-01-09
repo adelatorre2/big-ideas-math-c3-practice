@@ -1,0 +1,56 @@
+% Worksheet header macros
+\newcommand{\WorksheetRule}{%
+  \par\noindent\rule{\textwidth}{0.4pt}\par%
+}
+
+\newcommand{\NameDateLine}{%
+  \noindent\textbf{Name:} \rule{0.55\textwidth}{0.4pt}\hfill
+  \textbf{Date:} \rule{0.25\textwidth}{0.4pt}\par%
+}
+
+\newcommand{\WorkSpace}[1]{\vspace{#1}}
+
+\newcommand{\SolutionRef}[1]{Appendix~\ref{app:solutions}, p.~\pageref{#1}}
+
+\newcommand{\WorksheetHeader}[3]{%
+  \WorksheetRule
+  \vspace{0.5em}
+  {\Large\bfseries #1\par}
+  {\small #2\par}
+  {\itshape #3\par}
+  \vspace{0.4em}
+  \NameDateLine
+  \vspace{0.3em}
+  \WorksheetRule
+  \vspace{0.75em}
+}
+
+\newcommand{\WorksheetHeaderNav}[5]{%
+  \WorksheetRule
+  \vspace{0.35em}
+  {\small\noindent%
+    \hyperref[contents]{Back to Contents}%
+    \if\relax\detokenize{#4}\relax\else
+      \,|\,\hyperref[#4]{Solutions}%
+    \fi
+    \if\relax\detokenize{#5}\relax\else
+      \,|\,\href{#5}{Printable PDF}%
+    \fi
+    \par
+  }%
+  \vspace{0.4em}
+  {\Large\bfseries #1\par}
+  {\small #2\par}
+  {\itshape #3\par}
+  \vspace{0.4em}
+  \NameDateLine
+  \vspace{0.3em}
+  \WorksheetRule
+  \vspace{0.75em}
+}
+
+\newcounter{worksheet}
+\newcommand{\WorksheetHeaderAuto}[3]{%
+  \stepcounter{worksheet}%
+  \WorksheetHeader{Worksheet \theworksheet: #1}{#2}{#3}%
+}
