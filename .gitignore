@@ -1,0 +1,25 @@
+cat > .gitignore << 'EOF'
+# macOS
+.DS_Store
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.nav
+*.snm
+
+# Common build/output dirs (adjust to your project)
+out/
+paper/out/
+EOF
