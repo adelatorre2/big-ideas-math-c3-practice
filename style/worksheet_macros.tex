@@ -12,6 +12,29 @@
 
 \newcommand{\SolutionRef}[1]{Appendix~\ref{app:solutions}, p.~\pageref{#1}}
 
+\newtcbox{\NavButton}{%
+  on line,
+  colback=RoyalBlue!10,
+  colframe=RoyalBlue!60!black,
+  coltext=RoyalBlue!90!black,
+  boxrule=0.6pt,
+  arc=2mm,
+  left=1.2mm,right=1.2mm,top=0.5mm,bottom=0.5mm,
+  drop shadow,
+}
+
+\newcommand{\NavToContents}{%
+  \hyperref[contents]{\NavButton{\ensuremath{\leftarrow}\,Contents}}%
+}
+
+\newcommand{\NavToSolutions}[1]{%
+  \hyperref[#1]{\NavButton{\ensuremath{\checkmark}\,Solutions}}%
+}
+
+\newcommand{\NavToPrint}[1]{%
+  \href{#1}{\NavButton{Print}}%
+}
+
 \newcommand{\WorksheetHeader}[3]{%
   \WorksheetRule
   \vspace{0.5em}
@@ -29,12 +52,12 @@
   \WorksheetRule
   \vspace{0.35em}
   {\small\noindent%
-    \hyperref[contents]{Back to Contents}%
+    \NavToContents%
     \if\relax\detokenize{#4}\relax\else
-      \,|\,\hyperref[#4]{Solutions}%
+      \hspace{0.5em}\NavToSolutions{#4}%
     \fi
     \if\relax\detokenize{#5}\relax\else
-      \,|\,\href{#5}{Printable PDF}%
+      \hspace{0.5em}\NavToPrint{#5}%
     \fi
     \par
   }%
